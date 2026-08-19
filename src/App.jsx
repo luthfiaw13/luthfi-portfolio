@@ -19,7 +19,7 @@ import {
 } from "./data/portfolio";
 
 const highlights = [
-  ["4", "Featured Projects"],
+  ["5", "Featured Projects"],
   ["2", "Bootcamp Programs"],
   ["1", "Data Analytics Internship"],
   ["2022 - Present", "Informatics Student"],
@@ -66,14 +66,16 @@ function Hero() {
           </h1>
           <div className="mt-6 space-y-1 text-lg font-medium text-slate-700 sm:text-xl">
             <p>Final-Year Informatics Student</p>
-            <p className="text-brand-600">Data Analytics Enthusiast</p>
+            <p className="text-brand-600">
+              Aspiring Data Analyst | Business Intelligence
+            </p>
           </div>
           <p className="mt-7 max-w-xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
-            I am an Informatics student with an interest in data analytics, data
-            visualization, dashboard development, and technology. I enjoy
-            transforming data into meaningful insights and continuously
-            developing my skills through internships, bootcamps, and hands-on
-            projects.
+            Final-year Informatics student with hands-on experience in data
+            processing, data validation, business analysis, and dashboard
+            development through an internship at BPS Kota Tasikmalaya and
+            project-based learning. I enjoy transforming raw data into reliable
+            analysis, clear visualizations, and meaningful insights.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
@@ -139,22 +141,29 @@ function About() {
             <div className="space-y-5 text-base leading-8 text-slate-600">
               <p>
                 I am a final-year Informatics student at Universitas Siliwangi
-                with an interest in data analytics, data visualization, and
-                technology. I have developed my skills through academic
-                projects, internships, bootcamps, and hands-on experience
-                working with data.
+                with a growing focus on data analytics and business
+                intelligence. I am particularly interested in data cleaning,
+                data quality, analytical problem-solving, and developing clear
+                reports and dashboards that help make data easier to understand.
               </p>
+
               <p>
-                My experience includes data processing, data analysis, dashboard
-                development, SQL, Python, and data visualization. I also have
-                experience in organizational leadership and project management
-                through student organizations and committees.
+                My practical experience includes a work-practice internship at
+                BPS Kota Tasikmalaya, where I contributed to statistical data
+                processing, validation, analysis, reporting, and publication
+                activities. I also worked on the Desa Cantik Kahuripan program,
+                which strengthened my understanding of survey data quality and
+                structured analytical workflows.
               </p>
+
               <p>
-                I am currently focused on developing practical skills in data
-                analytics and business intelligence, particularly in SQL-based
-                analysis, dashboard development, and communicating data-driven
-                insights.
+                Alongside my internship experience, I continue to develop my
+                technical skills through project-based learning using Microsoft
+                Excel, SQL, Google BigQuery, Python, and Looker Studio. I am
+                currently preparing for entry-level opportunities in data
+                analytics and business intelligence where I can continue
+                learning while contributing through careful analysis and
+                reliable reporting.
               </p>
             </div>
             <div className="mt-8 rounded-xl border border-slate-200 bg-white p-5">
@@ -205,7 +214,7 @@ function Projects({ onOpenProject }) {
         <SectionHeading
           eyebrow="Selected Work"
           title="Featured Projects"
-          description="Hands-on analytics and technology projects focused on practical workflows, clear reporting, and understandable outcomes."
+          description="Selected projects demonstrating business intelligence, data quality, survey analytics, sales analysis, dashboard development, and applied data workflows across real-world and project-based datasets."
         />
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
@@ -288,7 +297,7 @@ function Skills() {
         <SectionHeading
           eyebrow="Capabilities"
           title="Skills"
-          description="A practical toolkit built through coursework, internships, bootcamps, and project-based learning."
+          description="Technical and analytical capabilities developed through internship experience, bootcamps, academic work, and hands-on data projects."
         />
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {skillGroups.map((group) => (
@@ -450,7 +459,7 @@ function Contact() {
             </div>
           </address>
           <a
-            href="/documents/luthfi-awaludin-cv.pdf"
+            href="/documents/Luthfi_Awaludin_CV_ATS.pdf"
             target="_blank"
             rel="noreferrer"
             className="mt-1 inline-flex items-center gap-2 rounded-lg bg-navy-900 px-5 py-2 text-sm font-semibold text-white transition hover:bg-navy-800"

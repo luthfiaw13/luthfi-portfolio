@@ -10,12 +10,12 @@ export const navigation = [
 export const projects = [
   {
     id: "kimia-farma",
-    title: "Kimia Farma Performance Analytics",
-    category: "Business Performance Analytics",
+    title: "Kimia Farma Business Performance Analytics",
+    category: "Business Intelligence & Big Data Analytics",
     year: "2026",
     description:
-      "An interactive business performance analytics project analyzing Kimia Farma data from 2020 to 2023. The project explores net sales, net profit, transactions, customer satisfaction, regional contribution, and branch performance.",
-    technologies: ["Google BigQuery", "SQL", "Google Looker Studio"],
+      "A business intelligence project integrating four Kimia Farma datasets in Google BigQuery to analyze sales, profitability, transactions, regional contribution, customer ratings, and branch performance from 2020 to 2023.",
+    technologies: ["SQL", "Google BigQuery", "Looker Studio"],
     previewType: "kimia",
     cardImage: "/projects/kimia-farma-dashboard-1.webp",
     cardImagePosition: "top",
@@ -34,53 +34,65 @@ export const projects = [
       },
     ],
     overview:
-      "A project-based analytics case focused on turning multi-year transaction and branch data into a management-ready performance view. The work combines SQL-based data preparation with a structured dashboard that highlights commercial performance, customer experience, regional contribution, and branch priorities.",
+      "A business performance analytics project completed as part of the Kimia Farma Big Data Analytics Project-Based Internship. The project integrates transaction, product, inventory, and branch datasets in Google BigQuery, transforms them into a transaction-level analytical table using SQL, and connects the resulting data directly to a two-page Looker Studio dashboard for executive and operational performance analysis.",
     background:
-      "Business performance data becomes more useful when management can connect sales and profitability with transaction quality, customer ratings, and geographic contribution. This project organizes those dimensions into a single analytical flow to make branch-level performance easier to interpret.",
+      "Kimia Farma's operational data was provided across four separate sources covering sales transactions, products, inventory, and branch information. Analyzing business performance across these sources required a reliable integration process that preserved transaction-level granularity while combining commercial, geographic, product, and customer-rating dimensions into a consistent analytical dataset.",
     objective:
-      "Build a clear analytical view of performance from 2020–2023, identify meaningful patterns across sales, profit, transactions, satisfaction, regions, and branches, then translate the findings into practical branch-management priorities.",
+      "Build a single source of truth for Kimia Farma's 2020–2023 business data, calculate key financial and operational metrics, evaluate performance across time, products, regions, and branches, and communicate the findings through an interactive management dashboard.",
     workflow: [
-      "Raw Transaction Data",
-      "Data Preparation in BigQuery",
-      "SQL Analysis & KPI Calculation",
-      "Data Validation",
+      "4 Raw CSV Datasets",
+      "BigQuery Data Import",
+      "SQL Data Integration & Transformation",
+      "kf_analysis Analytical Table",
+      "Data & Metric Validation",
       "Looker Studio Dashboard",
-      "Insights & Recommendations",
+      "Management Insights & Actions",
     ],
-    tools: ["Google BigQuery", "SQL", "Google Looker Studio"],
+    tools: [
+      "SQL",
+      "Google BigQuery",
+      "Google Cloud Platform",
+      "Google Looker Studio",
+    ],
     contributions: [
-      "Prepared and queried the project dataset in Google BigQuery using SQL.",
-      "Defined and analyzed KPIs covering net sales, net profit, transactions, customer ratings, regional contribution, and branch performance.",
-      "Designed a two-page interactive dashboard in Google Looker Studio.",
-      "Translated analytical findings into branch management priorities using Protect, Improve, and Grow strategies.",
+      "Imported and integrated four operational datasets covering 672,458 transactions, product information, inventory records, and branch data using Google BigQuery.",
+      "Built the kf_analysis analytical table using SQL as a single source of truth while preserving one-row-per-transaction granularity.",
+      "Prevented transaction duplication caused by one-to-many inventory records by creating an inventory_unique CTE before joining the datasets.",
+      "Calculated business metrics including nett sales, nett profit, gross-profit percentages, transaction ratings, and normalized discount values using SQL.",
+      "Validated row consistency, required fields, numeric metrics, geographic dimensions, and date fields before connecting the analytical table to Looker Studio.",
+      "Designed a two-page interactive dashboard covering executive KPIs, time trends, geographic performance, branch analysis, product categories, rating gaps, and management priorities.",
+      "Developed dynamic summary insights and a branch improvement framework using Protect, Improve, and Grow management actions.",
     ],
     areas: [
-      "Key Performance Snapshot",
-      "Sales and Profit Analysis",
-      "Transaction Trends",
-      "Customer Satisfaction",
-      "Regional Contribution",
+      "Data Integration",
+      "SQL Data Transformation",
+      "Business Performance Analysis",
+      "Sales & Profitability",
+      "Time-Series Performance",
+      "Regional Analysis",
       "Branch Performance",
-      "Branch Management Priorities",
+      "Product Category Analysis",
+      "Customer & Branch Ratings",
+      "Management Prioritization",
     ],
     insights: [
-      "From 2020 to 2023, the analyzed data recorded approximately Rp321.17 billion in net sales and Rp72.56 billion in net profit, resulting in a profit margin of about 22.59%.",
-      "A total of 672,458 transactions were recorded, with an average transaction rating of 4.0/5 and an average branch rating of 4.4/5.",
-      "2022 generated the strongest annual sales performance, reaching approximately Rp80.58 billion in net sales.",
-      "West Java was the highest profit-contributing province, generating approximately Rp21.43 billion in net profit.",
+      "Across 2020–2023, the integrated dataset recorded approximately Rp321.17 billion in nett sales and Rp72.56 billion in nett profit, representing a 22.59% profit margin.",
+      "The analysis covered 672,458 transactions, with an average transaction rating of 4.0/5 and an average branch rating of 4.4/5.",
+      "2022 recorded the strongest annual sales performance, generating approximately Rp80.58 billion in nett sales.",
+      "West Java was the largest profit-contributing province, generating approximately Rp21.43 billion in nett profit.",
     ],
     recommendations: [
       {
         label: "Protect",
-        text: "Maintain service quality and product availability at high-performing branches.",
+        text: "Maintain service quality and product availability at high-profit branches that already demonstrate strong transaction ratings.",
       },
       {
         label: "Improve",
-        text: "Prioritize service improvements for branches with low transaction ratings or large rating gaps.",
+        text: "Prioritize service improvements at high-profit branches with low transaction ratings or large gaps between branch and transaction ratings.",
       },
       {
         label: "Grow",
-        text: "Increase promotion and product availability for branches with strong ratings but relatively low sales and profit.",
+        text: "Increase promotion and product availability at branches with strong ratings but relatively lower sales and profitability.",
       },
     ],
     links: [
@@ -91,20 +103,105 @@ export const projects = [
     ],
   },
   {
+    id: "descan-kahuripan",
+    title: "Desa Cantik Kahuripan Survey Analytics Pipeline",
+    category: "Survey Data Analytics & Quality Monitoring",
+    year: "2025",
+
+    description:
+      "A survey analytics workflow developed from the 2025 Desa Cantik Kahuripan program to monitor household-based micro and small business data, identify data-quality issues, and prepare structured analytical outputs.",
+
+    technologies: [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Microsoft Excel",
+      "Google Colab",
+    ],
+
+    previewType: "descan",
+
+    overview:
+      "A real-world survey analytics case developed from internship work at BPS Kota Tasikmalaya. The project transforms multi-sheet survey data into a structured workflow for data-quality review, survey progress monitoring, descriptive analysis, and reporting.",
+
+    background:
+      "The 2025 Desa Cantik Kahuripan program collected household-based micro and small business information across 19 RW in Kelurahan Kahuripan, Kota Tasikmalaya. The survey required structured data validation, progress monitoring, and analytical preparation before the results could be used for reporting and local economic analysis.",
+
+    objective:
+      "Develop a repeatable analytics workflow to validate survey data, monitor completion, identify anomalies, and prepare descriptive statistics and visual outputs while preserving the integrity of the original source data.",
+
+    contributions: [
+      "Structured survey data processing and validation using Python and Microsoft Excel.",
+      "Developed data-quality checks for incomplete records, duplicate entries, inconsistent classifications, and survey anomalies.",
+      "Prepared monitoring outputs to evaluate survey completion and data coverage across 19 RW.",
+      "Performed descriptive analysis and prepared visualization-ready outputs for reporting.",
+      "Contributed to the final Desa Cantik Kahuripan publication through data processing and analysis, writing, and graphic layout.",
+    ],
+
+    tools: [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Microsoft Excel",
+      "Google Colab",
+    ],
+
+    workflow: [
+      "Survey Data Collection",
+      "Data Preparation",
+      "Data Validation",
+      "Quality Monitoring",
+      "Descriptive Analysis",
+      "Visualization & Reporting",
+    ],
+
+    areas: [
+      "Survey Data Processing",
+      "Data Quality",
+      "Survey Monitoring",
+      "Data Validation",
+      "Descriptive Analytics",
+      "Reporting",
+    ],
+
+    insights: [
+      "Separating survey monitoring from final analysis makes the workflow easier to audit and maintain.",
+      "Data-quality checks help identify incomplete, inconsistent, and potentially problematic survey records before analysis.",
+      "RW-level monitoring provides a clearer view of survey coverage and completion across the study area.",
+      "Preserving original survey values while flagging questionable records improves transparency during the review process.",
+    ],
+
+    recommendations: [
+      {
+        label: "Validate",
+        text: "Run structured data-quality checks before using survey records for final analysis.",
+      },
+      {
+        label: "Monitor",
+        text: "Track survey completion and data coverage by RW to identify areas requiring follow-up.",
+      },
+      {
+        label: "Document",
+        text: "Maintain traceable analytical outputs so data cleaning and validation decisions can be reviewed.",
+      },
+    ],
+    links: [
+      {
+        label: "GitHub Repository",
+        url: "https://github.com/luthfiaw13/descan_kahuripan_analytics",
+      },
+    ],
+  },
+  {
     id: "kitchen-equipment",
-    title: "Kitchen Equipment Sales Analysis",
-    category: "End-to-End Data Analytics",
+    title: "Kitchen Equipment Sales Performance Dashboard",
+    category: "Sales Analytics & Business Intelligence",
     year: "2026",
     description:
-      "An end-to-end data analytics project using 10,000 kitchen equipment sales transactions. The project covers data cleaning, SQL analysis, exploratory data analysis, and interactive dashboard development.",
-    technologies: [
-      "Microsoft Excel",
-      "Google BigQuery",
-      "SQL",
-      "Python",
-      "Google Colab",
-      "Google Looker Studio",
-    ],
+      "An interactive sales performance dashboard built from 10,000 cleaned kitchen-equipment transactions, using Google BigQuery as the data source and Looker Studio to analyze revenue, order performance, monthly trends, products, categories, and geographic sales.",
+    technologies: ["Microsoft Excel", "Google BigQuery", "Looker Studio"],
     previewType: "sales",
     cardImage: "/projects/kitchen-equipment-dashboard.webp",
     cardImagePosition: "center",
@@ -117,58 +214,58 @@ export const projects = [
       },
     ],
     overview:
-      "An end-to-end analytics workflow built around 10,000 kitchen-equipment sales transactions, from initial data preparation through SQL-based analysis, exploratory analysis, and dashboard communication.",
+      "A sales analytics project developed from a cleaned dataset of 10,000 kitchen-equipment transactions from 2025. The source data was prepared and standardized in Microsoft Excel, uploaded to Google BigQuery, and connected to Looker Studio to build an interactive dashboard for monitoring sales, orders, completion rates, product performance, categories, and geographic contribution.",
     background:
-      "Raw sales transaction data can contain formatting inconsistencies and is difficult to interpret without a structured analysis workflow. This project focuses on organizing the data and making performance patterns easier to understand.",
+      "The original retail dataset contained 10,000 kitchen-equipment transactions with information on dates, orders, customers, products, categories, prices, quantities, discounts, shipping fees, order status, and shipping locations. Before visualization, several categorical and location fields required cleaning and standardization to create a more consistent dataset for analysis.",
     objective:
-      "Clean and structure the transaction dataset, explore commercial patterns with SQL and Python, and present the results through an interactive dashboard suitable for business review.",
+      "Prepare a reliable transaction dataset and develop an interactive business intelligence dashboard that allows sales performance to be evaluated across time, products, categories, order status, and geographic markets.",
     contributions: [
-      "Cleaned and structured 10,000 kitchen equipment sales transaction records.",
-      "Performed SQL-based analysis in Google BigQuery and exploratory data analysis using Python in Google Colab.",
-      "Analyzed sales trends, product performance, geographic contribution, and order completion.",
-      "Designed an interactive business dashboard in Google Looker Studio and summarized the main findings.",
+      "Cleaned and standardized the original retail transaction dataset in Microsoft Excel, including order-status, city, and category fields.",
+      "Prepared the resulting 10,000-record cleaned dataset for analytical use and uploaded it to Google BigQuery as the dashboard data source.",
+      "Connected the BigQuery dataset to Google Looker Studio and defined dashboard-level metrics for sales revenue, total orders, completion rate, and average order value.",
+      "Designed an interactive sales dashboard with date, category, order-status, and city filters.",
+      "Built visual analyses covering monthly sales trends, geographic performance, Top 5 products by revenue, Top 10 cities, category contribution, and product sales performance.",
+      "Summarized key dashboard findings into concise business insights for sales-performance monitoring.",
     ],
-    tools: [
-      "Microsoft Excel",
-      "Google BigQuery",
-      "SQL",
-      "Python",
-      "Google Colab",
-      "Google Looker Studio",
-    ],
+    tools: ["Microsoft Excel", "Google BigQuery", "Google Looker Studio"],
     workflow: [
-      "Raw Sales Data",
-      "Data Cleaning in Excel",
-      "SQL Analysis in BigQuery",
-      "EDA in Python / Colab",
+      "Raw Transaction Data",
+      "Data Cleaning & Standardization",
+      "Cleaned Transaction Dataset",
+      "Google BigQuery Data Source",
       "Looker Studio Dashboard",
-      "Business Insights",
+      "Sales Performance Insights",
     ],
     areas: [
       "Data Cleaning",
-      "SQL Analysis",
-      "Exploratory Data Analysis",
-      "Sales Performance Review",
-      "Dashboard Development",
+      "Data Standardization",
+      "Sales Performance Analysis",
+      "KPI Monitoring",
+      "Monthly Sales Trends",
+      "Product Performance",
+      "Category Performance",
+      "Geographic Analysis",
+      "Interactive Dashboard",
     ],
     insights: [
-      "The 10,000 analyzed orders generated total sales revenue of approximately Rp5.87 billion, with an order completion rate of 89.72%.",
+      "The dashboard summarizes Rp5.87 billion in sales revenue from 10,000 orders, with an overall completion rate of 89.72% and an average order value of approximately Rp587.27 thousand.",
       "August recorded the highest monthly sales at approximately Rp523.78 million, while February recorded the lowest at approximately Rp453.11 million.",
       "Mesin Kopi Espresso Rumahan was the highest-revenue product, generating approximately Rp751.74 million.",
-      "Jakarta Pusat was the strongest sales market, contributing approximately Rp635.34 million in revenue.",
+      "Jakarta Pusat was the strongest geographic market, contributing approximately Rp635.34 million in sales revenue.",
+      "The Alat Masak category dominated revenue contribution at approximately 79.5% of total sales.",
     ],
     recommendations: [
       {
         label: "Prioritize",
-        text: "Maintain product availability and promotional support for high-revenue products such as Mesin Kopi Espresso Rumahan.",
-      },
-      {
-        label: "Optimize",
-        text: "Use strong-performing markets such as Jakarta Pusat as a reference while evaluating opportunities in lower-contributing cities.",
+        text: "Maintain product availability and commercial focus for high-revenue products, particularly Mesin Kopi Espresso Rumahan.",
       },
       {
         label: "Monitor",
-        text: "Track monthly sales variation and order completion consistently to identify operational or seasonal changes.",
+        text: "Track monthly sales and order completion rates to identify performance changes and periods requiring further investigation.",
+      },
+      {
+        label: "Target",
+        text: "Use city and category performance to support more focused inventory allocation and sales initiatives across stronger and weaker markets.",
       },
     ],
     links: [
@@ -180,17 +277,16 @@ export const projects = [
   },
   {
     id: "excel-dashboard",
-    title: "Microsoft Excel Business Analysis Dashboard",
-    category: "Business Analysis & Reporting",
+    title: "Fashion Sales Performance Dashboard",
+    category: "Excel Analytics & Dashboard",
     year: "2026",
     description:
-      "A business analysis project focused on transforming raw data into structured reports, pivot tables, and interactive dashboards using Microsoft Excel.",
+      "An interactive Microsoft Excel dashboard analyzing 15,000 fashion sales transactions through KPI monitoring, monthly sales trends, product and city performance, platform contribution, order status, and dynamic slicer-based filtering.",
     technologies: [
       "Microsoft Excel",
-      "Pivot Tables",
-      "Data Cleaning",
-      "Data Visualization",
-      "Dashboard Development",
+      "PivotTables",
+      "PivotCharts",
+      "Slicers & Timeline",
     ],
     previewType: "excel",
     cardImage: "/projects/excel-dashboard.webp",
@@ -204,57 +300,62 @@ export const projects = [
       },
     ],
     overview:
-      "A spreadsheet-based business analysis project demonstrating how structured Excel workflows can turn raw operational data into concise reports, pivot-table analysis, and interactive dashboards.",
+      "An interactive sales dashboard developed in Microsoft Excel using 15,000 fashion retail transactions. The project summarizes key sales indicators and provides interactive analysis across time, locations, products, platforms, order status, size, and customer gender segments using PivotTables, PivotCharts, slicers, and a Timeline.",
     background:
-      "Excel remains a practical analysis tool for many business teams. The project emphasizes clean data organization, repeatable reporting logic, and a dashboard layout that makes key metrics easy to scan.",
+      "The project uses a dataset of 15,000 fashion sales transactions containing order dates, customers, cities, products, prices, quantities, discounts, sales values, shipping fees, payment methods, order status, sales platforms, customer ratings, sizes, materials, and gender segments. The dashboard was developed to summarize this transaction data into an interactive view of sales performance.",
     objective:
-      "Transform raw business data into a structured analytical workbook with cleaned data, pivot-based reporting, and a dashboard designed for routine performance monitoring.",
+      "Transform fashion retail transaction data into an interactive Excel dashboard that enables users to monitor key sales metrics and explore performance across multiple business dimensions.",
     contributions: [
-      "Cleaned and organized raw sales data in Microsoft Excel.",
-      "Created Pivot Tables and KPI summaries for sales, product, city, platform, and order-status analysis.",
-      "Built interactive filters and dashboard visualizations using Excel features.",
-      "Developed a management summary based on the resulting business performance indicators.",
+      "Analyzed 15,000 fashion sales transactions and summarized key performance indicators including net sales, quantity sold, average customer rating, and shipping fees.",
+      "Built PivotTables and PivotCharts to analyze monthly sales trends, city performance, product performance, platform contribution, and order-status distribution.",
+      "Designed an interactive Excel dashboard combining KPI cards and multiple sales-performance visualizations in a single reporting view.",
+      "Implemented a Timeline and Size and Gender slicers to allow users to interactively filter and explore dashboard results.",
+      "Prepared narrative business insights highlighting sales patterns, strongest markets, leading products, and platform contribution.",
     ],
     tools: [
       "Microsoft Excel",
-      "Pivot Tables",
-      "Data Cleaning",
-      "Data Visualization",
-      "Dashboard Development",
+      "PivotTables",
+      "PivotCharts",
+      "Slicers",
+      "Timeline",
     ],
     workflow: [
-      "Raw Sales Data",
-      "Data Cleaning",
-      "Pivot Table Analysis",
+      "Fashion Sales Dataset",
+      "PivotTable Analysis",
       "KPI Calculation",
-      "Charts & Slicers",
-      "Excel Dashboard & Summary",
+      "PivotChart Visualization",
+      "Interactive Dashboard",
+      "Sales Insights",
     ],
     areas: [
-      "Data Preparation",
-      "Pivot Table Analysis",
-      "Business Reporting",
-      "Dashboard Development",
+      "Sales Performance Analysis",
+      "KPI Reporting",
+      "Monthly Trend Analysis",
+      "Product Performance",
+      "City Performance",
+      "Platform Analysis",
+      "Order Status Analysis",
+      "Interactive Excel Dashboard",
     ],
     insights: [
-      "The analyzed sales data generated approximately Rp7.09 billion in net sales from 26,453 units, with an average customer rating of 3.0 and total shipping fees of approximately Rp357.57 million.",
-      "Jakarta was the strongest city in the dashboard, generating approximately Rp338.85 million in sales.",
-      "Gamis was the highest-performing product, generating approximately Rp619.18 million in sales.",
-      "Toko Fashion App contributed the largest platform share at approximately 35% of total sales.",
-      "Completed orders accounted for 18,186 units, while returned orders reached 3,673 units, highlighting an area worth monitoring operationally.",
+      "The dashboard recorded approximately Rp7.09 billion in net sales across 15,000 fashion transactions, with 26,453 units sold and approximately Rp357.57 million in shipping fees.",
+      "January recorded the highest monthly total sales at approximately Rp609.04 million, while September recorded the lowest at approximately Rp542.25 million.",
+      "Jakarta was the strongest city among the Top 10 sales locations, contributing approximately Rp338.85 million in total sales.",
+      "Gamis was the highest-performing product among the Top 10 products, generating approximately Rp619.18 million in total sales.",
+      "Toko Fashion App was the largest platform contributor, accounting for approximately 35.26% of total sales.",
     ],
     recommendations: [
       {
         label: "Maintain",
-        text: "Maintain sales momentum in high-contributing markets such as Jakarta and monitor the performance of leading products such as Gamis.",
+        text: "Maintain sales momentum in high-performing markets such as Jakarta while monitoring the continued performance of leading products such as Gamis.",
       },
       {
-        label: "Promote",
-        text: "Increase promotional attention in lower-contributing markets while using stronger regions as performance benchmarks.",
+        label: "Leverage",
+        text: "Use Toko Fashion App's strong sales contribution as a reference point when evaluating performance and opportunities across other sales platforms.",
       },
       {
         label: "Monitor",
-        text: "Track returned, cancelled, and pending orders alongside customer ratings to identify potential service and operational improvements.",
+        text: "Track order-status distribution and customer ratings alongside sales performance to identify potential operational and customer-experience issues.",
       },
     ],
     linksNote:
@@ -354,15 +455,16 @@ export const projects = [
 
 export const experiences = [
   {
-    role: "Statistics and Data Analytics Intern",
+    role: "Work Practice Intern — Data Processing & Analytics",
     organization: "Badan Pusat Statistik (BPS) Kota Tasikmalaya",
     period: "June 2025 – August 2025",
     description:
-      "Supported statistical data processing, analytics, and reporting activities during the work-practice program.",
+      "Supported statistical data processing, quality control, analysis, reporting, and publication activities at BPS Kota Tasikmalaya, including work related to the 2025 Desa Cantik Kahuripan survey program.",
     bullets: [
-      "Supported statistical data validation and processing activities.",
-      "Contributed to data analysis, reporting, and visualization for statistical information.",
-      "Supported dashboard development to communicate data in a more accessible format.",
+      "Supported monitoring and quality control of Desa Cantik Kahuripan survey data covering 19 RW in Kelurahan Kahuripan, Kota Tasikmalaya.",
+      "Validated survey records and reviewed data-quality issues such as inconsistent enumerator information and duplicate identifiers for follow-up.",
+      "Processed and analyzed survey data to prepare structured statistical outputs and visualizations for reporting.",
+      "Contributed to the final Desa Cantik Kahuripan publication through data processing and analysis, report writing, and graphic layout.",
     ],
   },
   {
@@ -370,11 +472,11 @@ export const experiences = [
     organization: "UKM Seni Musik Universitas Siliwangi",
     period: "2026 – Present",
     description:
-      "Leading membership development and organizational engagement initiatives.",
+      "Leading membership development, internal engagement, and cadre development activities within the student organization.",
     bullets: [
-      "Lead membership and cadre development initiatives within the organization.",
-      "Coordinate programs related to member engagement and internal communication.",
-      "Support organizational development and member participation through structured programs.",
+      "Coordinate membership and cadre development programs for active members.",
+      "Support internal communication, member engagement, and participation across organizational activities.",
+      "Collaborate with other organizational divisions to plan and execute internal development programs.",
     ],
   },
 ];
@@ -383,29 +485,35 @@ export const skillGroups = [
   {
     title: "Data Analytics",
     skills: [
-      "Data Cleaning",
-      "Data Analysis",
+      "Data Cleaning & Validation",
       "Exploratory Data Analysis",
-      "Business Analysis",
-      "SQL-Based Analysis",
+      "Survey Data Analytics",
+      "Data Quality Analysis",
+      "SQL Data Analysis",
+      "Business Performance Analysis",
     ],
   },
   {
-    title: "Data Visualization",
+    title: "Data Visualization & Reporting",
     skills: [
       "Dashboard Development",
-      "Data Reporting",
+      "Interactive Reporting",
+      "Data Visualization",
       "KPI Analysis",
-      "Business Insight Communication",
+      "Statistical Reporting",
+      "Insight Communication",
     ],
   },
   {
-    title: "Tools",
+    title: "Tools & Technologies",
     skills: [
       "Microsoft Excel",
       "SQL",
       "Google BigQuery",
       "Python",
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
       "Google Colab",
       "Google Looker Studio",
     ],
@@ -427,7 +535,7 @@ export const certifications = [
     provider: "KarirNex",
     date: "July 2026",
     focus:
-      "Excel, SQL (Google BigQuery), Python (Google Colab), Google Looker Studio",
+      "Data preparation with Excel, SQL analysis in Google BigQuery, Python-based exploratory analysis in Google Colab, and dashboard development with Looker Studio",
     achievement: "Predicate: Expert",
     image: "/certificates/data-analyst-karirnex.webp",
     imageAlt:
@@ -447,7 +555,8 @@ export const certifications = [
     title: "Microsoft Excel Bootcamp",
     provider: "KarirNex",
     date: "June 2026",
-    focus: "Intensive 3-Week Microsoft Excel Bootcamp Program",
+    focus:
+      "Excel formulas, conditional and multi-criteria analysis, PivotTables, PivotCharts, interactive dashboards, and introductory VBA automation",
     achievement: "Proficiency level: Expert",
     image: "/certificates/excel-bootcamp-karirnex.webp",
     imageAlt:
@@ -457,7 +566,7 @@ export const certifications = [
     title: "Excel Case Study & Office Work Simulation",
     provider: "ITBOX",
     date: "16 June 2026",
-    focus: "DAE-08 Studi Kasus & Latihan Excel: Simulasi Dunia Kerja Kantoran",
+    focus: "Practical Excel case studies and office-work simulation exercises.",
     achievement: "Certificate of Completion",
     image: "/certificates/itbox-excel-case-study.webp",
     imageAlt:
@@ -467,10 +576,11 @@ export const certifications = [
     title: "BPS Work Practice Program",
     provider: "Badan Pusat Statistik (BPS) Kota Tasikmalaya",
     date: "June – August 2025",
-    focus: "Work Practice Program at BPS Kota Tasikmalaya",
-    achievement: "Completion: Good",
+    focus:
+      "Statistical data processing, data validation, reporting, and publication support during a professional work practice program.",
+    achievement: "Completed with Good rating",
     image: "/certificates/bps-internship-certificate.webp",
     imageAlt:
-      "Badan Pusat Statistik Kota Tasikmalaya internship certificate for Luthfi Awaludin for completing the work practice program from June to August 2025.",
+      "Badan Pusat Statistik Kota Tasikmalaya certificate awarded to Luthfi Awaludin for completing the Work Practice Program from June to August 2025 with a Good rating.",
   },
 ];

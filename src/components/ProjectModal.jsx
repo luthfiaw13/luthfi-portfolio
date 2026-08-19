@@ -127,7 +127,7 @@ export default function ProjectModal({ project, onClose }) {
               </ul>
             </div>
           ) : null}
-          
+
           <div className="mt-9">
             <h4 className="text-lg font-semibold text-navy-950">
               Tools and Technologies
